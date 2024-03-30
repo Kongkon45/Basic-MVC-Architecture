@@ -1,12 +1,14 @@
 const express = require("express");
 const cors = require("cors");
-
+const userRoute = require("./routes/usersRoute")
+require("./config/db")
 
 const app = express();
 
 app.use(cors())
 app.use(express.urlencoded({extended:true}));
 app.use(express.json())
+app.use(userRoute)
 
 // home route 
 app.get("/", (req, res)=>{
